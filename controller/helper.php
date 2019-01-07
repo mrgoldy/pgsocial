@@ -96,7 +96,11 @@ class helper
 	    $this->pg_social_path = generate_board_url().'/ext/pgreca/pgsocial';
 	}
 
-	/* TIME AGO - FOR ACTIVITY AND MESSAGES CHAT */
+	/**
+	 * TIME AGO - FOR ACTIVITY AND MESSAGES CHAT
+	 *
+	 * @return string
+	 * */
 	public function time_ago($from, $to = 0)
 	{
 		$periods = array(
@@ -142,10 +146,13 @@ class helper
 		{
 			$period .= "S";
 		}
+
 		if(($to - $from) > ((3600 - 1) / 60))
 		{
 			return sprintf($this->user->lang[$tense], $difference, $this->user->lang['WALL_TIME_PERIODS'][$period]);
 		}
+
+		return '';
 	}
 
 	/* PRIVACY OF ACTIVITY */
